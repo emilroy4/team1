@@ -10,21 +10,21 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.team1.databinding.FragmentSlideshowBinding;
+import com.example.team1.databinding.FragmentCalenderBinding;
 
 public class CalenderFragment extends Fragment {
 
-    private FragmentSlideshowBinding binding;
+    private FragmentCalenderBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         CalenderViewModel calenderViewModel =
                 new ViewModelProvider(this).get(CalenderViewModel.class);
 
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentCalenderBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
+        final TextView textView = binding.textCalender;
         calenderViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
