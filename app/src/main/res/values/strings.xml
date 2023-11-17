@@ -2,7 +2,7 @@
     <string name="app_name">team1</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Emil Roy</string>
+
     <string name="user_name">Emil Roy</string>
     <string name="nav_header_subtitle">emilroy100@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
