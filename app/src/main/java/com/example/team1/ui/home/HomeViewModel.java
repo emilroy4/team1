@@ -12,6 +12,7 @@ public class HomeViewModel extends ViewModel {
         mText = new MutableLiveData<>();
 
         mText.setValue("Announcement:");
+
     }
 
     public LiveData<String> getText() {
