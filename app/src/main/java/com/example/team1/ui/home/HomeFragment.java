@@ -31,15 +31,18 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
+        //texts
         final TextView textView = binding.textHome;
-        final TextView locationTextView = binding.textView2;
+        final TextView announcement1 = binding.announcetextView;
+        final TextView locationTextView = binding.locationText;
+        announcement1.setSelected(true);
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        homeViewModel.getAnnouncement1().observe(getViewLifecycleOwner(), announcement1::setText);
         homeViewModel.getLocationText().observe(getViewLifecycleOwner(), locationTextView::setText);
 
 
 
-        // Initialize the MapView
+        //MapView
         mapView = root.findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(new OnMapReadyCallback() {
