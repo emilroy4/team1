@@ -10,6 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.text.SimpleDateFormat;//date time
+
+
 import com.example.team1.R;
 import com.example.team1.databinding.FragmentHomeBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -31,14 +34,30 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
         //texts
         final TextView textView = binding.textHome;
-        final TextView announcement1 = binding.announcetextView;
+        final TextView announcement1 = binding.announcetextView;  // Corrected variable name
         final TextView locationTextView = binding.locationText;
         announcement1.setSelected(true);
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        homeViewModel.getAnnouncement1().observe(getViewLifecycleOwner(), announcement1::setText);
+        //announcement
+        homeViewModel.getAnnouncements().observe(getViewLifecycleOwner(), announcements -> {
+            // Sort announcements by date in descending order
+            announcements.sort((a1, a2) -> a2.getDateTime().compareTo(a1.getDateTime()));
+
+            StringBuilder announcementsText = new StringBuilder();
+            for (Announcement announcement : announcements) {
+                // Format the date and time as needed
+                SimpleDateFormat dateFormat = new SimpleDateFormat("\nyyyy-MM-dd HH:mm");
+                String formattedDateTime = dateFormat.format(announcement.getDateTime());
+                announcementsText.append(formattedDateTime).append(": \n\n").append(announcement.getMessage()).append("\n");
+            }
+            announcement1.setText(announcementsText.toString().trim());
+        });
+
         homeViewModel.getLocationText().observe(getViewLifecycleOwner(), locationTextView::setText);
+
 
 
 
