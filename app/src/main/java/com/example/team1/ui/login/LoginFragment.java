@@ -2,6 +2,7 @@ package com.example.team1.ui.login;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +48,7 @@ public class LoginFragment extends Fragment {
                     // For simplicity, show a toast message here
                     Toast.makeText(getContext(), "Login successful", Toast.LENGTH_SHORT).show();
 
-                    // TODO: Navigate to the home screen or perform the required action
+                    // Navigate to home or perform other actions
                 } else {
                     // Invalid credentials, show an error message
                     Toast.makeText(getContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();
@@ -59,8 +60,8 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Handle register text click
-                // Navigate to the registration screen
-                // Use FragmentManager to replace this fragment with the RegisterFragment
+                // Navigate to the registration screen by replacing the current fragment with RegisterFragment
+                replaceFragment(new RegisterFragment());
             }
         });
 
@@ -71,5 +72,15 @@ public class LoginFragment extends Fragment {
     private boolean isValidCredentials(String username, String password) {
         // Replace this with your actual authentication logic
         return username.equals("emilroy") && password.equals("password");
+    }
+
+    // Method to replace fragments
+    private void replaceFragment(Fragment fragment) {
+        if (getFragmentManager() != null) {
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.nav_host_fragment_content_main, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
     }
 }
