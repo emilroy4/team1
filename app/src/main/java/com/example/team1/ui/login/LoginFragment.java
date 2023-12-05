@@ -3,6 +3,8 @@ package com.example.team1.ui.login;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.Navigation;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +51,7 @@ public class LoginFragment extends Fragment {
                     Toast.makeText(getContext(), "Login successful", Toast.LENGTH_SHORT).show();
 
                     // Navigate to home or perform other actions
+                    Navigation.findNavController(v).navigate(R.id.nav_home);
                 } else {
                     // Invalid credentials, show an error message
                     Toast.makeText(getContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();
