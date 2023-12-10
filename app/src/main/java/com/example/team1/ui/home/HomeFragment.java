@@ -56,6 +56,9 @@ public class HomeFragment extends Fragment {
             announcement1.setText(announcementsText.toString().trim());
         });
 
+
+
+
         homeViewModel.getLocationText().observe(getViewLifecycleOwner(), locationTextView::setText);
 
 
