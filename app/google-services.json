@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "879852830526",
+    "project_id": "team1-f86d3",
+    "storage_bucket": "team1-f86d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879852830526:android:a12052d735b2d18e30f66f",
+        "android_client_info": {
+          "package_name": "com.example.team1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBBqf45vweEsYNE_oSljDiOOYdfwA04GE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
