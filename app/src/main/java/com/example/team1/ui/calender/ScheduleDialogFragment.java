@@ -43,4 +43,7 @@ public class ScheduleDialogFragment extends DialogFragment {
     public void setIsFree(boolean isFree) {
         this.isFree = isFree;
     }
+
 }
+
+
