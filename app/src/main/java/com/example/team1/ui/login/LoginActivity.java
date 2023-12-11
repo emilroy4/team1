@@ -1,6 +1,5 @@
-package com.example.team1;
+package com.example.team1.ui.login;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
+import com.example.team1.R;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -50,12 +51,6 @@ public class LoginActivity extends AppCompatActivity {
             });
         });
 
-        // Code for handling registration, assuming you have a TextView with an ID of tvRegister
-        /*
-        tvRegister.setOnClickListener(v -> {
-            // Open the registration activity
-            startActivity(new Intent(this, RegisterActivity.class));
-        });
-        */
+
     }
 }

@@ -1,10 +1,13 @@
-package com.example.team1;
+package com.example.team1.ui.login;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+
+import com.example.team1.ui.login.User;
+import com.example.team1.ui.login.UserRepository;
 
 import java.util.List;
 

@@ -26,7 +26,7 @@
         </activity>
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.login.LoginActivity"
             android:label="@string/login_activity_title"
             android:theme="@style/Theme.Team1.NoActionBar">
         </activity>

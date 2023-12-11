@@ -20,7 +20,6 @@ public class LoginFragment extends Fragment {
     private EditText etUsername;
     private EditText etPassword;
     private Button btnLogin;
-    private TextView tvRegister;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -35,7 +34,6 @@ public class LoginFragment extends Fragment {
         etUsername = view.findViewById(R.id.etUsername);
         etPassword = view.findViewById(R.id.etPassword);
         btnLogin = view.findViewById(R.id.btnLogin);
-        tvRegister = view.findViewById(R.id.tvRegister);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,14 +57,7 @@ public class LoginFragment extends Fragment {
             }
         });
 
-        tvRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle register text click
-                // Navigate to the registration screen by replacing the current fragment with RegisterFragment
-                replaceFragment(new RegisterFragment());
-            }
-        });
+
 
         return view;
     }

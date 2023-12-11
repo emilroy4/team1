@@ -1,9 +1,11 @@
-package com.example.team1;
+package com.example.team1.ui.login;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+
+import com.example.team1.ui.login.User;
 
 import java.util.List;
 

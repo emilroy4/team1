@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,8 +20,10 @@ public class CalenderViewModel extends ViewModel {
 
         // Initialize announcements with initial announcements
         List<Announcement> initialAnnouncements = new ArrayList<>();
-        initialAnnouncements.add(new Announcement(new Date(), "Team practice on Monday at 5 PM."));
-        initialAnnouncements.add(new Announcement(new Date(), "Important match on Saturday. Be prepared!"));
+        SimpleDateFormat dateFormat = new SimpleDateFormat("\nyyyy-MM-dd HH:mm");
+
+        initialAnnouncements.add(new Announcement(new Date(), "Team practice on Monday at 5 PM.\n"));
+        initialAnnouncements.add(new Announcement(new Date(), "\nImportant match on Saturday. Be prepared!\n"));
 
         announcements = new MutableLiveData<>();
         announcements.setValue(initialAnnouncements);

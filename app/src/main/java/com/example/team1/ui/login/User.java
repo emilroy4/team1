@@ -1,4 +1,4 @@
-package com.example.team1;
+package com.example.team1.ui.login;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.ColumnInfo;
