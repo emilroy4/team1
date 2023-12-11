@@ -1,9 +1,12 @@
 package com.example.team1.ui.calender;
 
+import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +18,9 @@ import com.example.team1.ui.calender.Announcement;
 
 import com.example.team1.databinding.FragmentCalenderBinding;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class CalenderFragment extends Fragment {
@@ -28,6 +34,7 @@ public class CalenderFragment extends Fragment {
         View root = binding.getRoot();
 
         final TextView textView = binding.textCalender;
+        final CalendarView calendarView = binding.calendarView;
 
         // Initialize the ViewModel
         calenderViewModel = new ViewModelProvider(this).get(CalenderViewModel.class);
@@ -53,8 +60,40 @@ public class CalenderFragment extends Fragment {
             }
         });
 
+        // Set up a click listener for the CalendarView
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                // Handle the date selection here
+                showScheduleForDate(year, month, dayOfMonth);
+            }
+        });
+
         return root;
     }
+
+    // Function to show the schedule for a selected date
+
+    // Function to show the schedule for a selected date
+    private void showScheduleForDate(int year, int month, int dayOfMonth) {
+        // Retrieve the user's availability for the selected date
+        boolean isFree = getUserAvailabilityForDate(year, month, dayOfMonth);
+
+        // Create and display the ScheduleDialogFragment
+        ScheduleDialogFragment scheduleDialog = new ScheduleDialogFragment();
+        scheduleDialog.setIsFree(isFree); // Set the availability
+        scheduleDialog.show(getChildFragmentManager(), "ScheduleDialog");
+    }
+
+    // Example function to get user's availability based on your logic
+    private boolean getUserAvailabilityForDate(int year, int month, int dayOfMonth) {
+        // Replace this with your logic to determine the user's availability for the selected date
+        // You can fetch this data from your data source (e.g., a database)
+        // For simplicity, we will return true if the date is even (user is free on even days)
+        return dayOfMonth % 2 == 0;
+    }
+
+
 
     @Override
     public void onDestroyView() {

@@ -16,12 +16,13 @@ public class Announcement {
     }
 
     // Constructor for announcements with title, location, and description
-    public Announcement(Date dateTime, String message, String title, String location, String description) {
+    public Announcement(Date dateTime, String title, String location, String description) {
         this.dateTime = dateTime;
-        this.message = message;
         this.title = title;
         this.location = location;
         this.description = description;
+        // You may choose to set the message as a combination of title, location, and description
+        // this.message = title + " at " + location + " - " + description;
     }
 
     public Date getDateTime() {
@@ -29,7 +30,12 @@ public class Announcement {
     }
 
     public String getMessage() {
-        return message;
+        // Return the stored message or generate it if it's null
+        if (message == null) {
+            return title + " at " + location + " - " + description;
+        } else {
+            return message;
+        }
     }
 
     public String getTitle() {
